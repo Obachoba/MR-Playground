@@ -24,9 +24,9 @@ public class AutoObjectPlacement : MonoBehaviour
     // - Parameter: Minimum distance between spawned objects (default 0.5 meters)
     public void PopulateRoomWithObjects(float minDist = 0.5f)
     {
-        // Generate random number of objects to spawn (between 5 and 10)
+        // Generate random number of objects to spawn (between 10 and 15)
         // This adapts to room size - smaller rooms might fail to place all 10
-        int rng = Random.Range(5, 10);
+        int rng = Random.Range(10, 15);
 
         // Get the current room from MRUK singleton instance
         // MRUK.Instance provides global access to the room management system
@@ -37,7 +37,7 @@ public class AutoObjectPlacement : MonoBehaviour
         // LabelFilter tells MRUK which type of spatial anchors we want
         // SceneLabels.TABLE is a predefined label for table surfaces
         // Other options: COUCH, WALL_FACE, FLOOR, CEILING, WINDOW_FRAME, DOOR_FRAME, etc.
-        LabelFilter tableFilter = new LabelFilter(MRUKAnchor.SceneLabels.TABLE);
+        LabelFilter tableFilter = new LabelFilter(MRUKAnchor.SceneLabels.WALL_FACE);
 
         // Attempt to spawn 'rng' number of objects (5-10 balls)
         for (int index = 0; index < rng; index++)
@@ -50,7 +50,7 @@ public class AutoObjectPlacement : MonoBehaviour
             // - out Vector3 position: Outputs the found spawn position
             // - out Vector3 normal: Outputs the surface normal (direction surface is facing)
             room.GenerateRandomPositionOnSurface(
-                MRUK.SurfaceType.FACING_UP,
+                MRUK.SurfaceType.VERTICAL,
                 0.2f,
                 tableFilter,
                 out Vector3 position,
