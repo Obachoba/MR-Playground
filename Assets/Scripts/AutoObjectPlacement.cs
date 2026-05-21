@@ -87,7 +87,7 @@ public class AutoObjectPlacement : MonoBehaviour
                 // - Quaternion.Euler(normal): rotation aligned to surface normal
                 //   Note: This might not be ideal for all objects - balls don't need rotation
                 //   For other objects, you might want: Quaternion.LookRotation(normal)
-                Instantiate(prefab, position, Quaternion.Euler(normal));
+                Instantiate(prefab, position, Quaternion.LookRotation(normal));
             }
             // If not clear (too close to another object), skip this spawn attempt
             // The loop continues to try finding another position
