@@ -24,6 +24,7 @@ public class FingerGun : MonoBehaviour
 
     public void FingerGunActivated()
     {
+        Debug.Log("It's Finger gun time");
         _isShooting = true;
         _nextFireTime = Time.time;
     }
@@ -47,4 +48,6 @@ public class FingerGun : MonoBehaviour
 
         Destroy(projectile, 3f);
     }
+
+   
 }

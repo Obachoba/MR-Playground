@@ -27,6 +27,7 @@ public class ThumbsUp : MonoBehaviour
     // Changes the object's material to a random one from the pool
     public void ThumbsUpActivated()
     {
+        Debug.Log("Thumbs up");
         // Get a random index from the materials array
         // Random.Range(0, materials.Length) gives 0 to Length-1
         int randomIndex = Random.Range(0, materials.Length);
